@@ -11,6 +11,19 @@ public class Alimentacao extends Loja {
         this.dataAlvara = dataAlvara;
     }
 
+    // Construtores que incluem a capacidade do estoque (último parâmetro)
+    public Alimentacao(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, Endereco endereco,
+            Data dataFundacao, Data dataAlvara, int capacidadeEstoque) {
+        super(nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao, capacidadeEstoque);
+        this.dataAlvara = dataAlvara;
+    }
+
+    public Alimentacao(String nome, int quantidadeFuncionarios, Endereco endereco, Data dataFundacao, Data dataAlvara,
+            int capacidadeEstoque) {
+        super(nome, quantidadeFuncionarios, endereco, dataFundacao, capacidadeEstoque);
+        this.dataAlvara = dataAlvara;
+    }
+
     public Data getDataAlvara() {
         return dataAlvara;
     }

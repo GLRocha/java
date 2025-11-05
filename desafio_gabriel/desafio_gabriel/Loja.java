@@ -54,6 +54,27 @@ public class Loja {
     this.endereco = endereco;
     this.dataFundacao = dataFundacao;
   }
+
+  // Construtor sem salario 
+  public Loja(String nome, int quantidadeFuncionarios, Endereco endereco, Data dataFundacao, int capacidadeEstoque) {
+    this.nome = nome;
+    this.quantidadeFuncionarios = quantidadeFuncionarios;
+    this.salarioBaseFuncionario = -1;
+    this.endereco = endereco;
+    this.dataFundacao = dataFundacao;
+    this.estoqueProdutos = new Produto[capacidadeEstoque];
+  }
+
+  // Construtor com salario
+  public Loja(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, Endereco endereco,
+      Data dataFundacao, int capacidadeEstoque) {
+    this.nome = nome;
+    this.quantidadeFuncionarios = quantidadeFuncionarios;
+    this.salarioBaseFuncionario = salarioBaseFuncionario;
+    this.endereco = endereco;
+    this.dataFundacao = dataFundacao;
+    this.estoqueProdutos = new Produto[capacidadeEstoque];
+  }
   public Endereco getEndereco() {
     return endereco;
   }
@@ -101,6 +122,25 @@ public class Loja {
     this.quantidadeFuncionarios = quantidadeFuncionarios;
   }
   
+  // Retorna o array de estoque (usado pelo validador)
+  public Produto[] getEstoqueProdutos() {
+    return this.estoqueProdutos;
+  }
+
+  // Remove produto pelo nome (retorna true se removido)
+  public boolean removeProduto(String nomeProduto) {
+    if (estoqueProdutos == null || nomeProduto == null) {
+      return false;
+    }
+    for (int i = 0; i < estoqueProdutos.length; i++) {
+      if (estoqueProdutos[i] != null && nomeProduto.equals(estoqueProdutos[i].getNome())) {
+        estoqueProdutos[i] = null;
+        return true;
+      }
+    }
+    return false;
+  }
+
   public char tamanhoDaLoja() {
     if (quantidadeFuncionarios < 10) {
       return 'P';

@@ -1,6 +1,20 @@
 public class Cosmetico extends Loja {
     private double taxaComercializacao;
 
+    // Construtores que incluem a capacidade do estoque (último parâmetro)
+    public Cosmetico(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, Endereco endereco,
+            Data dataFundacao, double taxaComercializacao, int capacidadeEstoque) {
+        super(nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao, capacidadeEstoque);
+        this.taxaComercializacao = taxaComercializacao;
+    }
+
+    public Cosmetico(String nome, int quantidadeFuncionarios, Endereco endereco, Data dataFundacao,
+            double taxaComercializacao, int capacidadeEstoque) {
+        super(nome, quantidadeFuncionarios, endereco, dataFundacao, capacidadeEstoque);
+        this.taxaComercializacao = taxaComercializacao;
+    }
+
+    // Construtores antigos (mantidos para compatibilidade)
     public Cosmetico(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, Endereco endereco, Data dataFundacao, double taxaComercializacao) {
         super(nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao);
         this.taxaComercializacao = taxaComercializacao;
